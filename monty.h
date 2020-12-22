@@ -8,7 +8,6 @@
 #include <stdbool.h>
 
 extern char *nodo_ini;
-
 typedef unsigned int positive;
 
 /**
@@ -67,6 +66,7 @@ void free_opc(check *array, stack_t **s, FILE *check_file);
 void free_arr(check *array);
 void free_dlistint(stack_t *head);
 char *copy_string(char *dest);
+bool is_number(char *str);
 
 /*function for search*/
 void push(stack_t **stack, unsigned int ln);

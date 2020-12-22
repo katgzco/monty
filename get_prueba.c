@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 	if (argc !=  2)
 	{
 		man_er(0, "USAGE: monty file");
-		exit(-1;
+		exit(1);
 	}
 
 /*open file*/
@@ -90,7 +90,7 @@ void file_manage(char *file_name)
 	if (check_file == NULL)
 	{
 		man_er(1, "Can't open file ", file_name);
-		exit(-1);
+		exit(1);
 	}
 	/*read line per line of the  file*/
 	ret = divide_file(check_file, array, &head);
@@ -98,7 +98,7 @@ void file_manage(char *file_name)
 		free_opc(array, &head, check_file);
 
 	if  (ret == -1)
-		exit(-1);
+		exit(1);
 }
 /**
  * check_opcode - frees a list
@@ -118,7 +118,7 @@ int check_opcode(check *element, instruction_t *opc, positive ln)
 		{
 			if (strcmp(element->opcode, "push") == 0)
 			{
-				if (element->arg == NULL)
+				if (element->arg == NULL || is_number(element->arg) == false)
 				{
 					msg = _itoa(ln);
 					man_er(2, "L", msg, ": usage: push integer");
