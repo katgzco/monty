@@ -9,9 +9,7 @@
 
 extern char *nodo_ini;
 #define EXIT_SUCCESS 0
-#define EXIT_FAILURE -1
-
-
+#define EXIT_FAILURE 1
 
 typedef unsigned int positive;
 
