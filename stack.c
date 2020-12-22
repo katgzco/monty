@@ -12,13 +12,17 @@ void push(stack_t **stack, unsigned int ln __attribute__((unused)))
 
 	if (nodo_ini == NULL)
 	{
-		man_er(0, "Error: malloc failed");
+		nodo_ini = "Error";
 		return;
 	}
 
 	newNode = malloc(sizeof(stack_t));
 	if (!newNode)
+	{
+		man_er(0, "Error: malloc failed");
+		nodo_ini = "Error";
 		return;
+	}
 	newNode->n = atoi(nodo_ini);
 	newNode->next = NULL;
 	newNode->prev = NULL;

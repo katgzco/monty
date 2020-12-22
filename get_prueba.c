@@ -89,7 +89,7 @@ void file_manage(char *file_name)
 	/*check succes or not of the open file*/
 	if (check_file == NULL)
 	{
-		man_er(1, "Can't open file", file_name);
+		man_er(1, "Can't open file ", file_name);
 		exit(EXIT_FAILURE);
 	}
 	/*read line per line of the  file*/
@@ -98,7 +98,7 @@ void file_manage(char *file_name)
 		free_opc(array, &head, check_file);
 
 	if  (ret == -1)
-		exit(EXIT_FAILURE);
+		exit(1);
 }
 /**
  * check_opcode - frees a list
