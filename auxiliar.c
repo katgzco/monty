@@ -76,12 +76,11 @@ void free_arr(check *array)
 void man_er(int size, const char *mesge, ...)
 {
 	va_list args;
-
-	va_start(args, mesge);
-
-	char *str = NULL;
+	char *str;
 	int i = 0;
 
+	va_start(args, mesge);
+	str = NULL;
 	fprintf(stderr, "%s", mesge);
 	while (i < size)
 	{
