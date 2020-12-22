@@ -76,3 +76,46 @@ void pint(stack_t **stack, unsigned int ln)
 		return;
 	}
 }
+
+/**
+ * pop - pops the head of the list
+ * @stack: head of the list.
+ * @ln: line number.
+ * Return: void.
+*/
+void pop(stack_t **stack, unsigned int ln)
+{
+	char *msg = NULL;
+
+	if (*stack == NULL)
+	{
+		msg = _itoa(ln);
+		man_er(2, "L", msg, ": can't pop an empty stack");
+		free(msg);
+		return;
+	}
+
+	if ((*stack)->next != NULL)
+	{
+		*stack = (*stack)->next;
+		free((*stack)->prev);
+		(*stack)->prev = NULL;
+	} else
+	{
+		free((*stack));
+		*stack = NULL;
+	}
+}
+
+/**
+ * nop - does nothing
+ * @stack: head of the list.
+ * @ln: line number.
+ * Return: void.
+*/
+void nop(stack_t **stack, unsigned int ln)
+{
+	(void)stack;
+	(void)ln;
+	return;
+}
