@@ -1,4 +1,3 @@
-#include "file_extern.h"
 #include "monty.h"
 
 /**
