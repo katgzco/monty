@@ -155,6 +155,7 @@ int opc_f(int idx, bool exec, check *array, stack_t **s, positive ln)
 	instruction_t opc[] = {
 		{"push", push}, {"pall", pall}, {"pint", pint},
 		{"pop", pop}, {"nop", nop}, {"add", add}, {"swap", swap},
+		{"sub", sub}, {"div", div},
 		{NULL, NULL}};
 
 	if (exec == false)
