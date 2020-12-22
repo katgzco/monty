@@ -23,6 +23,26 @@ int main(int argc, char *argv[])
 }
 
 /**
+ * is_number - checks if a string is a number.
+ * @str: string to be checked.
+ * Return: false on error, true on success.
+*/
+bool is_number(char *str)
+{
+	int i = 0;
+
+	if (!str)
+		return (false);
+	while (str[i] != '\0')
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (false);
+		i++;
+	}
+	return (true);
+}
+
+/**
  * divide_file - frees a list
  * @check_file: the file open.
  * @array: struct array to store file inf.
@@ -118,7 +138,7 @@ int check_opcode(check *element, instruction_t *opc, positive ln)
 		{
 			if (strcmp(element->opcode, "push") == 0)
 			{
-				if (element->arg == NULL)
+				if (element->arg == NULL || is_number(element->arg) == false)
 				{
 					msg = _itoa(ln);
 					man_er(2, "L", msg, ": usage: push integer");
