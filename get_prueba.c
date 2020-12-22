@@ -154,6 +154,7 @@ int opc_f(int idx, bool exec, check *array, stack_t **s, positive ln)
 	char *msg = NULL;
 	instruction_t opc[] = {
 		{"push", push}, {"pall", pall}, {"pint", pint},
+		{"pop", pop}, {"nop", nop}, {"add", add}, {"swap", swap},
 		{NULL, NULL}};
 
 	if (exec == false)
