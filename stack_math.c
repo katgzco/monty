@@ -18,7 +18,7 @@ void add(stack_t **stack, unsigned int ln)
 	pop(stack, ln);
 }
 
-void div(stack_t **stack, unsigned int ln)
+void _div(stack_t **stack, unsigned int ln)
 {
 	char *msg = NULL;
 	int result = 0;
@@ -40,5 +40,22 @@ void div(stack_t **stack, unsigned int ln)
 	}
 	result = (*stack)->next->n / (*stack)->n;
 	(*stack)->next->n = result;
+	pop(stack, ln);
+}
+
+void sub(stack_t **stack, unsigned int ln)
+{
+	char *msg = NULL;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		msg = _itoa(ln);
+		man_er(2, "L", msg, ": can't sub, stack too short");
+		free(msg);
+	nodo_ini = "Error";
+		return;
+	}
+
+	(*stack)->next->n = (*stack)->next->n - (*stack)->n;
 	pop(stack, ln);
 }

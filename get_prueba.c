@@ -26,11 +26,13 @@ int main(int argc, char *argv[])
  * divide_file - frees a list
  * @check_file: the file open.
  * @array: struct array to store file inf.
- * @head: the head if the link list..
+ * @head: the head if the link list.
+ * @opc: struct.
  * Return: 0 in succes -1 in error.
 */
 
-int divide_file(FILE *check_file, check *array, stack_t **head)
+int divide_file(FILE *check_file, check *array, stack_t **head,
+instruction_t *opc)
 {
 	char *token = NULL, *line = NULL;
 	size_t size = 0;
@@ -58,7 +60,7 @@ int divide_file(FILE *check_file, check *array, stack_t **head)
 		}
 		if (array[idx].opcode != NULL)
 		{
-			if (opc_f(idx, false, array, head, ln) == -1)
+			if (opc_f(idx, false, array, head, ln, opc) == -1)
 			{
 				free(line);
 				return (-1);
@@ -69,7 +71,7 @@ int divide_file(FILE *check_file, check *array, stack_t **head)
 	array[idx].opcode = NULL;
 	array[idx].arg = NULL;
 	free(line);
-	ret = opc_f(0, true, array, head, ln);
+	ret = opc_f(0, true, array, head, ln, opc);
 	return (ret);
 }
 
@@ -84,6 +86,11 @@ void file_manage(char *file_name)
 	check array[BUFSIZ];
 	int ret = 0;
 	stack_t *head = NULL;
+	instruction_t opc[] = {
+		{"push", push}, {"pall", pall}, {"pint", pint},
+		{"pop", pop}, {"nop", nop}, {"add", add}, {"swap", swap},
+		{"sub", sub}, {"div", _div},
+		{NULL, NULL}};
 
 	check_file = fopen(file_name, "r");
 	/*check succes or not of the open file*/
@@ -93,7 +100,7 @@ void file_manage(char *file_name)
 		exit(1);
 	}
 	/*read line per line of the  file*/
-	ret = divide_file(check_file, array, &head);
+	ret = divide_file(check_file, array, &head, opc);
 	if (ret == -1 || ret == 0)
 		free_opc(array, &head, check_file);
 
@@ -107,7 +114,8 @@ void file_manage(char *file_name)
  * @ln: the number of lines read from getline.
  * Return: 0 in succes 1 it no a commando 2 arg isn't int.
 */
-int check_opcode(check *element, instruction_t *opc, positive ln)
+int check_opcode(check *element, instruction_t *opc,
+positive ln)
 {
 	int i = 0;
 	char *msg = NULL;
@@ -139,6 +147,7 @@ int check_opcode(check *element, instruction_t *opc, positive ln)
 	}
 	return (0);
 }
+
 /**
  * opc_f - check the match for the function and control it .
  * @idx: the index of the array.
@@ -146,17 +155,14 @@ int check_opcode(check *element, instruction_t *opc, positive ln)
  * @array: struct array to store file inf.
  * @s: the head of the link list.
  * @ln: the num of lines.
+ * @opc: struct.
  * Return: the new string.
 */
-int opc_f(int idx, bool exec, check *array, stack_t **s, positive ln)
+int opc_f(int idx, bool exec, check *array, stack_t **s, positive ln,
+instruction_t *opc)
 {
 	int i = 0, j = 0, ret = 0;
 	char *msg = NULL;
-	instruction_t opc[] = {
-		{"push", push}, {"pall", pall}, {"pint", pint},
-		{"pop", pop}, {"nop", nop}, {"add", add}, {"swap", swap},
-		{"sub", sub}, {"div", div},
-		{NULL, NULL}};
 
 	if (exec == false)
 	{

@@ -3,7 +3,7 @@
 void swap(stack_t **stack, unsigned int ln)
 {
 	char *msg = NULL;
-    int temp = 0;
+	int temp = 0;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{

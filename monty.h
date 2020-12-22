@@ -57,10 +57,11 @@ typedef struct check
 void file_manage(char *file_name);
 void man_er(int size, const char *mesge, ...);
 char *copy_string(char *dest);
-int divide_file(FILE *check_file, check *array, stack_t **head);
+int divide_file(FILE *check_file, check *array, stack_t **head,
+instruction_t *opc);
 int count_digits(int number);
 char *_itoa(int number);
-int opc_f(int idx, bool exec, check *array, stack_t **s, positive ln);
+int opc_f(int idx, bool exec, check *array, stack_t **s, positive ln, instruction_t *opc);
 void pint(stack_t **stack, unsigned int ln);
 void free_opc(check *array, stack_t **s, FILE *check_file);
 void free_arr(check *array);
@@ -76,7 +77,8 @@ void pop(stack_t **stack, unsigned int ln);
 void add(stack_t **stack, unsigned int ln);
 void swap(stack_t **stack, unsigned int ln);
 void sub(stack_t **stack, unsigned int ln);
-void div(stack_t **stack, unsigned int ln);
+void _div(stack_t **stack, unsigned int ln);
+instruction_t *struc_op(void);
 #endif
 
 
