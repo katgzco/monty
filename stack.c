@@ -92,6 +92,7 @@ void pop(stack_t **stack, unsigned int ln)
 		msg = _itoa(ln);
 		man_er(2, "L", msg, ": can't pop an empty stack");
 		free(msg);
+		nodo_ini = "Error";
 		return;
 	}
 
