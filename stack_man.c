@@ -10,6 +10,7 @@ void swap(stack_t **stack, unsigned int ln)
 		msg = _itoa(ln);
 		man_er(2, "L", msg, ": can't swap, stack too short");
 		free(msg);
+        nodo_ini = "Error";
 		return;
 	}
     temp = (*stack)->n;
