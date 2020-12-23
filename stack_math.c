@@ -35,6 +35,8 @@ void _div(stack_t **stack, unsigned int ln)
 	int result = 0;
 
 	msg = _itoa(ln);
+	printf ("%d\n", ln);
+	printf("%s\n", msg);
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		man_er(2, "L", msg, ": can't div, stack too short");
@@ -44,12 +46,13 @@ void _div(stack_t **stack, unsigned int ln)
 	}
 	if ((*stack)->n == 0)
 	{
+		printf("%s\n", msg);
 		man_er(2, "L", msg, ": division by zero");
 		free(msg);
 		nodo_ini = "Error";
 		return;
 	}
-	result = (*stack)->n / (*stack)->next->n;
+	result = (*stack)->next->n - (*stack)->n;
 	(*stack)->next->n = result;
 	pop(stack, ln);
 }
