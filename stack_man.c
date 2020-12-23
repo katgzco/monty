@@ -90,20 +90,33 @@ void pstr(stack_t **stack, unsigned int ln)
 */
 void rotl(stack_t **stack, unsigned int ln __attribute__((unused)))
 {
-	stack_t *s_top = *stack, *s_ref = *stack;
+	stack_t *s_top = *stack, *s_las = *stack;
 
 	if (*stack != NULL)
 		return;
 
-	while (s_ref->next)
-		s_ref = s_ref->next;
+	while (s_las->next)
+		s_las = s_las->next;
 
-	s_top->next->prev = NULL;
-	*stack = s_top->next;
-	s_ref->next = s_top;
-	s_top->prev = s_ref;
+	(*stack)->next->prev =NULL;
+	*stack = (*stack)->next;
+	s_las->next = s_top;
+	s_top->prev = s_las;
 	s_top->next = NULL;
-
-
-
 }
+void rotr(stack_t **stack, unsigned int ln __attribute__((unused)))
+{
+	stack_t *s_top = *stack, *s_las = *stack;
+
+	if (*stack != NULL)
+		return;
+
+	while (s_las->next)
+		s_las = s_las->next;
+
+	s_las->prev->next = NULL;
+	s_las->prev = NULL;
+	s_las->next = s_top;
+	*stack = s_las;
+}
+
