@@ -92,13 +92,17 @@ void rotl(stack_t **stack, unsigned int ln __attribute__((unused)))
 {
 	stack_t *s_top = *stack, *s_ref = *stack;
 
+	if (*stack != NULL)
+		return;
+
 	while (s_ref->next)
 		s_ref = s_ref->next;
 
-	s_ref->next = s_top;
 	s_top->next->prev = NULL;
-	*stack = (*stack)->next;
-	s_ref->next->next = NULL;
+	*stack = s_top->next;
+	s_ref->next = s_top;
+	s_top->prev = s_ref;
+	s_top->next = NULL;
 
 
 
