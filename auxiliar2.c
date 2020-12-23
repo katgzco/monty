@@ -13,9 +13,15 @@ bool is_number(char *str)
 		return (false);
 	while (str[i] != '\0')
 	{
-		if (str[i] < '0' || str[i] > '9')
+		if (str[0] == '-' || (str[i] >= '0' && str[i] <= '9'))
+		{
+			i++;
+			continue;
+		}
+		else
 			return (false);
-		i++;
 	}
+	if (str[0] == '-' && i == 1)
+		return (false);
 	return (true);
 }
