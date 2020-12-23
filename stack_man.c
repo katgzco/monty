@@ -90,7 +90,8 @@ void pstr(stack_t **stack, unsigned int ln)
 */
 void rotl(stack_t **stack, unsigned int ln __attribute__((unused)))
 {
-	stack_t *s_refini = *stack, *s_ref = *stack, int tmp = 0;
+	stack_t *s_refini = *stack, *s_ref = *stack;
+	int tmp = 0;
 
 	while (s_ref->next)
 		s_ref = s_ref->next;
