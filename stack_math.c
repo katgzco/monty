@@ -75,3 +75,26 @@ void sub(stack_t **stack, unsigned int ln)
 	(*stack)->next->n = (*stack)->next->n - (*stack)->n;
 	pop(stack, ln);
 }
+
+/**
+ * mul -  mul the 2 top element owith the top element of the stack .
+ * @stack: the numbero of arguments.
+ * @ln: array of arguments
+ * Return: 0 in succes.
+*/
+void mul(stack_t **stack, unsigned int ln)
+{
+	char *msg = NULL;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		msg = _itoa(ln);
+		man_er(2, "L", msg, ": can't mul, stack too short");
+		free(msg);
+	nodo_ini = "Error";
+		return;
+	}
+
+	(*stack)->next->n = (*stack)->next->n * (*stack)->n;
+	pop(stack, ln);
+}

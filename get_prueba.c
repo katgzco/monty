@@ -47,6 +47,8 @@ instruction_t *opc)
 		array[idx].opcode = NULL;
 		array[idx].arg = NULL;
 		token = strtok(line, delim);
+		if (strcmp(token, "#") == 0)
+			continue;
 		while (token)
 		{
 			control++;

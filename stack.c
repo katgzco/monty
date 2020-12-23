@@ -70,7 +70,7 @@ void pint(stack_t **stack, unsigned int ln)
 	else
 	{
 		msg = _itoa(ln);
-		man_er(2, "L", msg, " can't pint, stack empty");
+		man_er(2, "L", msg, ": can't pint, stack empty");
 		free(msg);
 		nodo_ini = "Error";
 		return;
