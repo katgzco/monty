@@ -49,7 +49,7 @@ void _div(stack_t **stack, unsigned int ln)
 		nodo_ini = "Error";
 		return;
 	}
-	result = (*stack)->next->n / (*stack)->n;
+	result = (*stack)->n / (*stack)->next->n;
 	(*stack)->next->n = result;
 	pop(stack, ln);
 }
@@ -109,9 +109,9 @@ void _mod(stack_t **stack, unsigned int ln)
 {
 	char *msg = NULL;
 
+	msg = _itoa(ln);
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
-		msg = _itoa(ln);
 		man_er(2, "L", msg, ": can't mod, stack too short");
 		free(msg);
 		nodo_ini = "Error";
