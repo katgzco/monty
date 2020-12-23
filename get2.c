@@ -39,7 +39,7 @@ instruction_t *opc)
 				if ((strcmp(opc[j].opcode, array[i].opcode)) == 0)
 				{
 					nodo_ini = array[i].arg;
-					opc[j].f(s, ln);
+					opc[j].f(s, i);
 					if (nodo_ini != NULL && strcmp(nodo_ini, "Error") == 0)
 						return (-1);
 					break;
