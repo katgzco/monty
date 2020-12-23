@@ -75,3 +75,32 @@ void sub(stack_t **stack, unsigned int ln)
 	(*stack)->next->n = (*stack)->next->n - (*stack)->n;
 	pop(stack, ln);
 }
+
+/**
+ * mod -  mod to the top two elements of the list.
+ * @stack: the numbero of arguments.
+ * @ln: array of arguments
+ * Return: 0 in succes.
+*/
+void mod(stack_t **stack, unsigned int ln)
+{
+	char *msg = NULL;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		msg = _itoa(ln);
+		man_er(2, "L", msg, ": can't mod, stack too short");
+		free(msg);
+		nodo_ini = "Error";
+		return;
+	}
+	if ((*stack)->n == 0)
+	{
+		man_er(2, "L", msg, ": division by zero");
+		free(msg);
+		nodo_ini = "Error";
+		return;
+	}
+	(*stack)->next->n = (*stack)->next->n % (*stack)->n;
+	pop(stack, ln);
+}

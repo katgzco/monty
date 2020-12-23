@@ -89,7 +89,7 @@ void file_manage(char *file_name)
 	instruction_t opc[] = {
 		{"push", push}, {"pall", pall}, {"pint", pint},
 		{"pop", pop}, {"nop", nop}, {"add", add}, {"swap", swap},
-		{"sub", sub}, {"div", _div},
+		{"sub", sub}, {"div", _div}, {"mod", mod}, {"mul", mul},
 		{NULL, NULL}};
 
 	check_file = fopen(file_name, "r");
