@@ -52,7 +52,7 @@ void _div(stack_t **stack, unsigned int ln)
 		nodo_ini = "Error";
 		return;
 	}
-	result = (*stack)->next->n - (*stack)->n;
+	result = (*stack)->next->n / (*stack)->n;
 	(*stack)->next->n = result;
 	pop(stack, ln);
 }
