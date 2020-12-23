@@ -77,27 +77,18 @@ void sub(stack_t **stack, unsigned int ln)
 }
 
 /**
-<<<<<<< HEAD
  * mul -  mul the 2 top element owith the top element of the stack .
-=======
- * mod -  mod to the top two elements of the list.
->>>>>>> 74ae395a1d4d237475e00ca7988070f224b21b31
  * @stack: the numbero of arguments.
  * @ln: array of arguments
  * Return: 0 in succes.
 */
-<<<<<<< HEAD
-void mul(stack_t **stack, unsigned int ln)
-=======
-void mod(stack_t **stack, unsigned int ln)
->>>>>>> 74ae395a1d4d237475e00ca7988070f224b21b31
+void _mul(stack_t **stack, unsigned int ln)
 {
 	char *msg = NULL;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		msg = _itoa(ln);
-<<<<<<< HEAD
 		man_er(2, "L", msg, ": can't mul, stack too short");
 		free(msg);
 	nodo_ini = "Error";
@@ -105,7 +96,22 @@ void mod(stack_t **stack, unsigned int ln)
 	}
 
 	(*stack)->next->n = (*stack)->next->n * (*stack)->n;
-=======
+	pop(stack, ln);
+}
+
+/**
+ * _mod -  mod to the top two elements of the list.
+ * @stack: the numbero of arguments.
+ * @ln: array of arguments
+ * Return: 0 in succes.
+*/
+void _mod(stack_t **stack, unsigned int ln)
+{
+	char *msg = NULL;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		msg = _itoa(ln);
 		man_er(2, "L", msg, ": can't mod, stack too short");
 		free(msg);
 		nodo_ini = "Error";
@@ -119,6 +125,5 @@ void mod(stack_t **stack, unsigned int ln)
 		return;
 	}
 	(*stack)->next->n = (*stack)->next->n % (*stack)->n;
->>>>>>> 74ae395a1d4d237475e00ca7988070f224b21b31
 	pop(stack, ln);
 }

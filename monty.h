@@ -57,17 +57,10 @@ typedef struct check
 void file_manage(char *file_name);
 void man_er(int size, const char *mesge, ...);
 char *copy_string(char *dest);
-<<<<<<< HEAD
-int divide_file(FILE *check_file, check *, stack_t **, instruction_t *);
-int count_digits(int number);
-char *_itoa(int number);
-int check_opcode(check *element, instruction_t *opc, positive ln);
-=======
 int divide_file(FILE *, check *, stack_t **, instruction_t *);
 int check_opcode(check *element, instruction_t *opc, positive ln);
 int count_digits(int number);
 char *_itoa(int number);
->>>>>>> 74ae395a1d4d237475e00ca7988070f224b21b31
 int opc_f(int, bool, check *, stack_t **, positive, instruction_t *);
 void pint(stack_t **stack, unsigned int ln);
 void free_opc(check *array, stack_t **s, FILE *check_file);
@@ -84,8 +77,8 @@ void pop(stack_t **stack, unsigned int ln);
 void add(stack_t **stack, unsigned int ln);
 void swap(stack_t **stack, unsigned int ln);
 void sub(stack_t **stack, unsigned int ln);
-void mod(stack_t **stack, unsigned int ln);
-void mul(stack_t **stack, unsigned int ln);
+void _mod(stack_t **stack, unsigned int ln);
+void _mul(stack_t **stack, unsigned int ln);
 void _div(stack_t **stack, unsigned int ln);
 instruction_t *struc_op(void);
 #endif
