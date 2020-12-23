@@ -80,6 +80,9 @@ void sub(stack_t **stack, unsigned int ln);
 void _mod(stack_t **stack, unsigned int ln);
 void _mul(stack_t **stack, unsigned int ln);
 void _div(stack_t **stack, unsigned int ln);
+void pchar(stack_t **stack, unsigned int ln);
+void pstr(stack_t **stack, unsigned int ln);
+void rotl(stack_t **stack, unsigned int ln);
 instruction_t *struc_op(void);
 #endif
 

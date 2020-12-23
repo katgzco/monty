@@ -90,7 +90,7 @@ void file_manage(char *file_name)
 		{"push", push}, {"pall", pall}, {"pint", pint},
 		{"pop", pop}, {"nop", nop}, {"add", add}, {"swap", swap},
 		{"sub", sub}, {"div", _div}, {"mod", _mod}, {"mul", _mul},
-		{NULL, NULL}};
+		{"pchar", pchar}, {"pstr", pstr}, {"rotl", rotl}, {NULL, NULL}};
 
 	check_file = fopen(file_name, "r");
 	/*check succes or not of the open file*/
