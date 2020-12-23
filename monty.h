@@ -77,6 +77,8 @@ void pop(stack_t **stack, unsigned int ln);
 void add(stack_t **stack, unsigned int ln);
 void swap(stack_t **stack, unsigned int ln);
 void sub(stack_t **stack, unsigned int ln);
+void mod(stack_t **stack, unsigned int ln);
+void mul(stack_t **stack, unsigned int ln);
 void _div(stack_t **stack, unsigned int ln);
 instruction_t *struc_op(void);
 #endif
